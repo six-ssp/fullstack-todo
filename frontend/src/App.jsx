@@ -22,12 +22,18 @@ function App() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const newTodo = { id: Date.now(), title: title, is_completed: false }
+    // 修改点：不再自己造 id 了，直接发 title 和 is_completed
+    const newTodo = { 
+      title: title, 
+      is_completed: false 
+    }
+    
     await fetch(API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newTodo),
     })
+    
     fetchTodos()
     setTitle("")
   }
