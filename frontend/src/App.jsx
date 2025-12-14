@@ -6,7 +6,7 @@ function App() {
   const [todos, setTodos] = useState([])
   const [title, setTitle] = useState("")
 
-  // --- 逻辑部分保持不变 ---
+
   const fetchTodos = async () => {
     try {
       const response = await fetch(API_URL)
@@ -44,9 +44,9 @@ function App() {
     fetchTodos()
   }
 
-  // --- 样式大改版 ---
+
   return (
-    // 背景换成渐变色 (indigo -> purple -> pink)
+    
     <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 py-10 px-4 font-sans flex items-center justify-center">
       
       {/* 卡片换成“玻璃拟态”效果：半透明白背景 + 模糊 */}
@@ -63,12 +63,12 @@ function App() {
             onChange={(e) => setTitle(e.target.value)}
             placeholder="✨ 输入新任务..."
             required 
-            // 输入框：半透明黑底，白字
+            
             className="flex-1 bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400 transition-all"
           />
           <button 
             type="submit" 
-            // 按钮：粉色渐变
+         
             className="bg-gradient-to-r from-pink-500 to-orange-400 text-white font-bold px-6 py-3 rounded-xl hover:scale-105 active:scale-95 transition-transform shadow-lg"
           >
             Go
@@ -79,7 +79,6 @@ function App() {
           {todos.map((todo) => (
             <li 
               key={todo.id} 
-              // 列表项：白色半透明卡片
               className={`group flex items-center justify-between p-4 rounded-xl border transition-all duration-300 ${
                 todo.is_completed 
                   ? "bg-green-400/20 border-green-400/30" 
